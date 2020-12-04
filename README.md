@@ -1,7 +1,7 @@
 # LayerThief
  Layer Thief is a Robofont extension for quickly copying layers between UFOs.
 
-![Layer Thief UI](https://github.com/rdmcmurray/layer-thief/blob/master/resources/lt-screenshot-01.png)
+[![Layer Thief UI](https://github.com/rdmcmurray/layer-thief/blob/master/resources/lt-screenshot-01.png)](https://github.com/rdmcmurray/layer-thief/blob/master/resources/lt-screenshot-01.png)
 
 ## Current Hotkeys
 | Key | Opens |
