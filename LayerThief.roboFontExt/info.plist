@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Layer Thief</string>
+	<key>developer</key>
+	<string>Robert McMurray</string>
+	<key>developerURL</key>
+	<string>http://github.com/rdmcmurray</string>
+	<key>html</key>
+	<false/>
+	<key>launchAtStartUp</key>
+	<false/>
+	<key>mainScript</key>
+	<string></string>
+	<key>uninstallScript</key>
+	<string></string>
+	<key>addToMenu</key>
+	<array>
+		<dict>
+			<key>path</key>
+			<string>LayerThief.py</string>
+			<key>preferredName</key>
+			<string>Layer Thief</string>
+			<key>shortKey</key>
+			<string></string>
+		</dict>
+	</array>
+	<key>timeStamp</key>
+	<real>1605402009</real>
+	<key>version</key>
+	<string>0.9.0</string>
+	<key>requiresVersionMajor</key>
+	<string>3</string>
+	<key>requiresVersionMinor</key>
+	<string>4</string>
+	<key>expireDate</key>
+	<string></string>
+</dict>
+</plist>
