@@ -59,15 +59,17 @@ class LTAddLayerSheet(object):
 		self.addLayerSheet.open()
 
 	def _suggestLayerName(self):
+		# suggestion is based on source font + layer, but killed on repeat
 		p = self.parent
-		n = self.parent.sourceLayerDisplayNames
 
 		suggestion = p.openFontDisplayNames[p.selectedSourceFont]
 		suggestion += " "
-		suggestion += n[p.selectedSourceLayer]
+		suggestion += self.parent.sourceLayerDisplayNames[p.selectedSourceLayer]
+
+		print(suggestion)
 
 		# already exists, no suggestion
-		if suggestion in n: 
+		if suggestion in self.parent.targetLayerDisplayNames: 
 			suggestion = ""
 
 		return suggestion
@@ -107,7 +109,8 @@ class LTAddLayerSheet(object):
 		error = self.addLayerSheet.errorLabel
 		button = self.addLayerSheet.addLayerButton
 
-		if nameClean in self.parent.sourceLayerDisplayNames:
+		# don't duplicate sibling layer names
+		if nameClean in self.parent.targetLayerDisplayNames:
 			showError = 1
 			enableButton = 0
 		elif nameClean == "":

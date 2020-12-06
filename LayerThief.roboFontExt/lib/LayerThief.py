@@ -27,6 +27,7 @@ class LayerThief(object):
 	openFonts = []
 	openFontDisplayNames = []
 	sourceLayerDisplayNames = []
+	targetLayerDisplayNames = []
 	targetLayerColorHues = []
 	newLayerWasAdded = 0
 	selectedSourceFont = 0
@@ -168,6 +169,12 @@ class LayerThief(object):
 
 			self.openFontDisplayNames.append(name)
 
+	def _updateLayerDisplayNames(self, popUp, layerOrder):
+		if popUp == "source":
+			self.sourceLayerDisplayNames = layerOrder
+		elif popUp == "target":
+			self.targetLayerDisplayNames = layerOrder
+
 	def _updateFontPopUp(self, popUp, preserveCurrentIndex=0):
 		p = self._getPopUpUi(popUp, "font")
 		f = self._getSelectedPopUpFont(popUp)
@@ -206,9 +213,7 @@ class LayerThief(object):
 			p.enable(0)
 		else:
 			layers = self.openFonts[f].layers
-			# source layer display names used for new layer name suggestions in LTAddLayerSheet
-			if popUpIsSource:
-				self.sourceLayerDisplayNames = self.openFonts[f].layerOrder
+			self._updateLayerDisplayNames(popUp, self.openFonts[f].layerOrder)
 			# if LTAddLayerSheet added a layer, set it as current
 			if self.newLayerWasAdded and popUpIsTarget:
 				current = len(layers) - 1
@@ -241,7 +246,7 @@ class LayerThief(object):
 				p.getNSPopUpButton().addItemWithTitle_(self.layerPopUpActionTitle)
 				self.targetLayerAddIndex = p.getNSPopUpButton().menu().numberOfItems() - 1
 			elif popUpIsSource:
-				self.sourceLayer = p.get()
+				self.selectedSourceLayer = p.get()
 
 			p.enable(1)
 
@@ -374,7 +379,7 @@ class LayerThief(object):
 	def layerPopUpCallback(self, sender):
 		s = sender.get()
 		if sender == self.w.sourceLayerPopUp:
-			self.sourceLayer = s
+			self.selectedSourceLayer = s
 			self._verifyCanCopy()
 		elif sender == self.w.targetLayerPopUp:
 			self._verifyCanCopy()
