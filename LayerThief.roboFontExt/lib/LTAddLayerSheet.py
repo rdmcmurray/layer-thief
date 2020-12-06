@@ -66,8 +66,6 @@ class LTAddLayerSheet(object):
 		suggestion += " "
 		suggestion += self.parent.sourceLayerDisplayNames[p.selectedSourceLayer]
 
-		print(suggestion)
-
 		# already exists, no suggestion
 		if suggestion in self.parent.targetLayerDisplayNames: 
 			suggestion = ""
